@@ -6,19 +6,20 @@ using SeleniumAutomation.Setup;
 
 namespace SeleniumAutomation.Tests
 {
+    [TestFixture]
     public class FillAllTextBoxPageTest : AutomationSetup
     {
         public static DemoQAPage demoQAPage = new DemoQAPage();
         public TextBoxPage textBoxPage = new TextBoxPage();
 
-        [Test(Description = "This test is for fill all text box page")]
-        public void FillAllTextBoxPage()
+        [Test, Category("Regression Testing")]
+        [TestCaseSource(typeof(FillAllTextBoxPageDataSource), nameof(FillAllTextBoxPageDataSource.FillAllTextBoxPage))]
+        public void FillAllTextBoxPage(Users user, TextBoxData validUserData)
         {
-            TextBoxData validFromData = TextBoxDataInstances.ValidData;
 
             demoQAPage.VerifyThePage();
             demoQAPage.SelectElementsCards();
-            textBoxPage.FillTextBoxPage(validFromData);
+            textBoxPage.FillTextBoxPage(validUserData);
         }
     }
 }

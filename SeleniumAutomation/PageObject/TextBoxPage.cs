@@ -1,10 +1,7 @@
 ﻿using SeleniumAutomation.Setup;
 using NUnit.Framework;
 using SeleniumAutomation.Enums;
-using SeleniumAutomation.Data;
 using SeleniumAutomation.Models;
-using OpenQA.Selenium;
-using SeleniumAutomation.Frame;
 
 namespace SeleniumAutomation.PageObject
 {
@@ -16,12 +13,6 @@ namespace SeleniumAutomation.PageObject
             textBoxPageElements = new TextBoxPageElements();
         }
 
-
-        ElementDefinition buttonDef = new ElementDefinition
-        {
-            Locator = By.XPath("buttonId")
-        };
-
         public void FillTextBoxPage(TextBoxData validUserData)
         {
             var texboxButtonResult = driver.FindElement(textBoxPageElements.TextBoxButton);
@@ -30,16 +21,6 @@ namespace SeleniumAutomation.PageObject
             var TextBoxTitleResult = driver.FindElement(textBoxPageElements.TextBoxTitle);
             Assert.IsTrue(TextBoxTitleResult.Displayed, "Verify the Text Box Title was displayed");
             GlobalMetohods.EnterTextAndAssert(textBoxPageElements.FullNameTextBox, validUserData.FirstName);
-
-            //GlobalMetohods.Click(texboxButtonResult);
-            //GlobalMetohods.ClickElement(textBoxPageElements.FullNameTextBox);
-
-            //bool isCLicked = GlobalMetohods.ClickBoolElement(textBoxPageElements.FullNameTextBox);
-            //Assert.IsTrue(isCLicked, "Verify the button was clicked ");
-
-            //Asercion directa
-            //texboxButtonResult.Selected.Equals(true);
-
             GlobalMetohods.EnterTextAndAssert(textBoxPageElements.EmailTextBox, validUserData.Email);
             GlobalMetohods.EnterTextAndAssert(textBoxPageElements.CurrentAddressTextBox, validUserData.CurrentAddress);
             GlobalMetohods.EnterTextAndAssert(textBoxPageElements.PermanentAddressTextBox, validUserData.PermanentAddress);

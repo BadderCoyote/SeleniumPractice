@@ -2,9 +2,9 @@
 using SeleniumAutomation.Models;
 using System.Collections;
 
-namespace SeleniumAutomation.Data
+namespace SeleniumAutomation.Data   
 {
-    public  class FillAllTextBoxPageDataSource
+    public class FillAllTextBoxPageDataSource
     {
         public static IEnumerable FillAllTextBoxPage()
         {

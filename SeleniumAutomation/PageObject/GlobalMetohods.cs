@@ -50,5 +50,10 @@ namespace SeleniumAutomation.PageObject
                 return null;
             }
         }
+        public static By GetDynamicXPath(string pattern, string variableText)
+        {
+            string xpath = string.Format(pattern, variableText);
+            return By.XPath(xpath);
+        }
     }
 }

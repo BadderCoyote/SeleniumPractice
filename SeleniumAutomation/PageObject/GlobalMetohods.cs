@@ -35,5 +35,25 @@ namespace SeleniumAutomation.PageObject
                 return false;
             }
         }
+        public static string GetTextAfetrColon(By element)
+        {
+            try
+            {
+                IWebElement elementResult = driver.FindElement(element);
+                string fullText = elementResult.Text;
+                string[] parts = fullText.Split(':');
+                string splitTextResult = parts[1].Trim();
+                return splitTextResult;
+            }
+            catch (NoSuchElementException)
+            {
+                return null;
+            }
+        }
+        public static By GetDynamicXPath(string pattern, string variableText)
+        {
+            string xpath = string.Format(pattern, variableText);
+            return By.XPath(xpath);
+        }
     }
 }

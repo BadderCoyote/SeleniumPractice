@@ -13,5 +13,7 @@ namespace SeleniumAutomation.Models
         public String Email { get; set; }
         public String MovilNumber { get; set; }
         public String Year { get; set; }
+        public string CurrentAddress { get; set; }
+        public string PermanentAddress { get; set; }
     }
 }
